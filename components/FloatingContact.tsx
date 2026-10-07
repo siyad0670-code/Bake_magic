@@ -1,4 +1,4 @@
-const PHONE = "9710804040"; // രാജ്യ കോഡ് ഉൾപ്പെടെ, + ഇല്ലാതെ
+const PHONE = "919710804040"; // രാജ്യ കോഡ് ഉൾപ്പെടെ, + ഇല്ലാതെ
 const MESSAGE = "Hi Bake Magic, I'd like to place an order!";
 
 export default function FloatingContact() {
