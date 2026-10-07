@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cream: #ffe9d1;
+  --color-maroon: #4a0012;
+  --color-orange: #f5702f;
+  --color-lime: #d4ff5c;
+  --color-pink: #eb9c98;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-maroon);
+  font-family: var(--font-body), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+/* Intro Animations */
+@keyframes introLetter {
+from { transform: translateY(110%) rotate(8deg); opacity: 0; }
+to { transform: translateY(0) rotate(0); opacity: 1; }
+}
+@keyframes introSub {
+from { transform: scale(0.6); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
+}
+@keyframes introBar {
+from { width: 0; }
+to { width: 100%; }
+}
+.intro-letter { opacity: 0; animation: introLetter 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.intro-sub { opacity: 0; animation: introSub 0.7s 1.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.intro-bar { width: 0; animation: introBar 2.4s 0.1s ease-in-out forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+.intro-letter, .intro-sub, .intro-bar { animation-duration: 0.01s; animation-delay: 0s; opacity: 1; width: 100%; }
 }
